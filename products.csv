@@ -1,0 +1,16 @@
+id,name,category,price,stock,vegetarian
+1,Kirkland Rice 5kg,Grains,12.99,50,Yes
+2,Kirkland Pasta 2kg,Grains,8.99,35,Yes
+3,Fresh Mixed Vegetables 2kg,Vegetables,9.99,25,Yes
+4,Fresh Tomatoes 1kg,Vegetables,5.99,40,Yes
+5,Mozzarella Cheese 1kg,Dairy,11.99,20,Yes
+6,Kirkland Olive Oil 1L,Pantry,14.99,30,Yes
+7,Kirkland Chicken Breast 2kg,Meat,24.99,15,No
+8,Kirkland Frozen Pizza 4 Pack,Frozen,19.99,20,Yes
+9,Kirkland Orange Juice 3L,Beverages,7.99,45,Yes
+10,Kirkland Chocolate Cookies 1kg,Snacks,8.99,30,Yes
+11,Fresh Salad Mix 1kg,Vegetables,6.99,25,Yes
+12,Kirkland Sparkling Water 24 Pack,Beverages,9.99,60,Yes
+13,Kirkland Potato Chips 1kg,Snacks,6.99,40,Yes
+14,Fresh Strawberries 1kg,Fruits,10.99,15,Yes
+15,Kirkland Ice Cream 2L,Frozen,12.99,20,Yes
