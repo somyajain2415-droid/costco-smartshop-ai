@@ -100,6 +100,35 @@ def search_costco_products(
         vegetarian_only=vegetarian_only
     )
 
+    # Add comparable unit pricing when package size is known
+    import re
+
+    for product in products:
+        name = product["name"]
+
+        match = re.search(
+            r"(\d+(?:\.\d+)?)\s*(kg|g|L|ml)\b",
+            name,
+            re.IGNORECASE
+        )
+
+        if match:
+            quantity = float(match.group(1))
+            unit = match.group(2).lower()
+
+            if unit == "g":
+                quantity /= 1000
+                unit = "kg"
+            elif unit == "ml":
+                quantity /= 1000
+                unit = "l"
+
+            if quantity > 0:
+                product["unit_price"] = round(
+                    product["price"] / quantity, 2
+                )
+                product["unit"] = unit
+
     return {
         "agent": "Costco SmartShop AI",
         "status": "success",
