@@ -100,10 +100,48 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# Customer types a shopping request
-question = st.chat_input(
+
+# Suggested shopping prompts
+suggested_question = None
+if len(st.session_state.messages) <= 1:
+    st.markdown("### Not sure where to start?")
+    st.caption("Choose a shopping idea or type your own request.")
+
+    col1, col2, col3 = st.columns(3)
+
+
+
+    with col1:
+        if st.button("🍝 Plan a Dinner", use_container_width=True):
+            suggested_question = (
+                "Prepare a vegetarian dinner basket for two "
+                "people under $50. Show available products, "
+                "prices, and the total."
+             )
+
+        with col2:
+            if st.button("💰 Shop Under $30", use_container_width=True):
+                suggested_question = (
+                    "Prepare a grocery basket under $30 using "
+                    "available Costco products. Show my "
+                    "remaining budget."
+                )
+
+        with col3:
+            if st.button("🛒 Weekly Groceries", use_container_width=True):
+                suggested_question = (
+                    "Prepare a weekly grocery basket for a small "
+                    "household under $100. Include available "
+                    "essentials and calculate the total."
+                )
+
+# Customer can type or select a suggested prompt
+typed_question = st.chat_input(
     "What would you like to shop for?"
 )
+
+question = suggested_question or typed_question
+
 
 if question:
     st.session_state.messages.append({
